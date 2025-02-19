@@ -6,12 +6,11 @@ export function Filtre({setFilms, setIsVisible}) {
     
 
     function handleSearchChange(e) {
-        setFilms((prev) => prev.filter((movie) => movie.title.toLowerCase().includes(e.target.value.toLowerCase())))
+        setFilms((prev) => prev.filter((movie) => movie.title.toLowerCase().startsWith(e.target.value.toLowerCase())))
     }
 
-    function handleRatingChange(e) {
-        const selectedRating = parseFloat(e.target.value);
-        setFilms(prev => prev.filter(movie => movie.note >= selectedRating));
+    function handleRangeChange(e) {
+        setFilms(prev => prev.filter(movie => movie.note >= e.target.value));
     }
 
     return (
@@ -22,17 +21,11 @@ export function Filtre({setFilms, setIsVisible}) {
                         <img src="/search.png" alt="search"></img>
                     </span>      
                 </div> 
-                <div className="rating">
-                    <input onChange={handleRatingChange} value="5" name="rate" id="star5" type="radio"></input>
-                    <label title="text" htmlFor="star5"></label>
-                    <input onChange={handleRatingChange} value="4" name="rate" id="star4" type="radio"></input>
-                    <label title="text" htmlFor="star4"></label>
-                    <input onChange={handleRatingChange} value="3" name="rate" id="star3" type="radio" ></input>
-                    <label title="text" htmlFor="star3"></label>
-                    <input onChange={handleRatingChange} value="2" name="rate" id="star2" type="radio"></input>
-                    <label title="text" htmlFor="star2"></label>
-                    <input onChange={handleRatingChange} value="1" name="rate" id="star1" type="radio"></input>
-                    <label title="text" htmlFor="star1"></label>
+                <div className="stars">
+                    <img src="/star(1).png" alt="star"></img>
+                    <input className="input-range" type="range" min="0" max="5" step="0.1" onChange={handleRangeChange} />
+                    <img src="/star(2).png" alt="star"></img>
+
                 </div>  
                 <button onClick={toggleVisibility} className="cta">
                     <span className="hover-underline-animation"> Add New Movie </span>
