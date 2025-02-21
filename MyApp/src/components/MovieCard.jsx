@@ -1,8 +1,9 @@
+import { Link } from "react-router";
 import "../App.css";
 
 export function MovieCard({ movie }) {
     return (
-        <div className="card">
+        <Link to={`/view/${movie.id}`} className="card">
             <div className="card-img">
                 <img src={movie.posterURL} alt={movie.title || "Movie Poster"} className="img" />
             </div>
@@ -16,6 +17,6 @@ export function MovieCard({ movie }) {
                 </div>
                 <button className="card-btn"><img src="/heart.png" alt="heart"></img></button>
             </div>
-        </div>
+        </Link>
     );
 }

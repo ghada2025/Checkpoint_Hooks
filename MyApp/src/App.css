@@ -1,3 +1,4 @@
+@import "tailwindcss";
 body{
   overflow-x: hidden;
 }
@@ -9,7 +10,7 @@ body{
   --main-color: #323232;
   --main-focus: #2d8cf0;
   width: 230px;
-  height: 300px;
+  height: 400px;
   background: var(--bg-color);
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
@@ -120,7 +121,6 @@ body{
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  align-items: center;
   height: 700px;
   width: 100vw;
   padding: 40px;
@@ -226,6 +226,7 @@ body{
   border-radius: 20px;
   background-color: #fff;
   max-width: 350px;
+  margin-top: 5px;
   margin-left: 870px;
 }
 
@@ -338,20 +339,6 @@ body{
   padding-right: 15px;
   text-transform: uppercase;
 }
-
-.cta svg {
-  transform: translateX(-8px);
-  transition: all 0.3s ease;
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active svg {
-  transform: scale(0.9);
-}
-
 .hover-underline-animation {
   position: relative;
   color: black;
